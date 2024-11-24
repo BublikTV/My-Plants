@@ -31,6 +31,14 @@ export class MyPlantsComponent implements OnInit {
     // Pobierz dane roślin z REST API za pomocą serwisu
     this.plantService.getPlants().subscribe((data: Plant[]) => {
       this.plants = data;
-    });    
+    });
+  }
+
+  // Funkcja usuwania rośliny
+  deletePlant(id: number) {
+    this.plantService.deletePlant(id).subscribe(() => {
+      // Po usunięciu rośliny odśwież listę
+      this.plants = this.plants.filter(plant => plant.id !== id);
+    });
   }
 }

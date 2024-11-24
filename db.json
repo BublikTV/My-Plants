@@ -1,19 +1,11 @@
 {
-    "plants": [
-      {
-        "id": 1,
-        "name": "Monstera",
-        "species": "Monstera deliciosa",
-        "description": "This plant loves indirect sunlight and regular watering.",
-        "imageUrl": "https://example.com/monstera.jpg"
-      },
-      {
-        "id": 2,
-        "name": "Asplenium Nidus Leslie",
-        "species": "Asplenium Nidus",
-        "description": "This plant thrives in shaded areas and enjoys high humidity.",
-        "imageUrl": "https://example.com/asplenium.jpg"
-      }
-    ]
-  }
-  
+  "plants": [
+    {
+      "id": "1",
+      "name": "Monstera",
+      "species": "Monstera deliciosa",
+      "description": "This plant loves indirect sunlight and regular watering.",
+      "imageUrl": "https://example.com/monstera.jpg"
+    }
+  ]
+}
