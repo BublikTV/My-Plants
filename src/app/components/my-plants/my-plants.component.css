@@ -1,11 +1,11 @@
 /* Ustawienie tła dla sekcji z kartami */
 :host {
   display: block;
-  background-image: url('/assets/images/soil.jpg'); /* Tło - obraz ziemi */
-  background-size: cover; /* Dopasowanie obrazu do wielkości sekcji */
-  background-position: center; /* Wyśrodkowanie obrazu */
-  background-attachment: fixed; /* Obraz pozostaje nieruchomy podczas przewijania */
-  padding: 20px; /* Dodatkowy margines dla sekcji */
+  min-height: 100vh;
+  background-image: url('/assets/images/soil.jpg');
+  background-size: cover; /* Dopasuj obraz do wielkości sekcji */
+  background-position: center; /* Wyśrodkuj obraz */
+  background-repeat: no-repeat; /* Zapobiegaj powtarzaniu obrazu */
 }
 
 /* Stylizacja kart roślin */
