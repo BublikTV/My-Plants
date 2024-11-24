@@ -11,7 +11,7 @@ import { PlantService, Plant } from 'src/app/services/plant.service';
   imports: [
     MatCardModule,
     CommonModule,
-    RouterModule // Add RouterModule here
+    RouterModule // Add RouterModule here for navigation
   ],
   templateUrl: './my-plants.component.html',
   styleUrls: ['./my-plants.component.css'],
@@ -52,9 +52,9 @@ export class MyPlantsComponent implements OnInit {
   }
 
   // Function to delete a plant
-  deletePlant(id: number) {
+  deletePlant(event: Event, id: number) {
+    event.stopPropagation(); // Zatrzymanie propagacji zdarzenia
     this.plantService.deletePlant(id).subscribe(() => {
-      // Refresh the list after deleting the plant
       this.plants = this.plants.filter(plant => plant.id !== id);
     });
   }
