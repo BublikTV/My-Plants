@@ -5,9 +5,9 @@ import { HomeComponent } from './components/home/home.component';
 import { PlantDetailsComponent } from './components/plant-details/plant-details.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' }, // Domyślna strona główna
-  { path: 'home', component: HomeComponent }, // Strona główna
-  { path: 'my-plants', component: MyPlantsComponent }, // Strona z roślinami
-  { path: 'add-plant', component: AddPlantComponent }, // Formularz dodawania rośliny
-  { path: 'plant-details/:id', component: PlantDetailsComponent }, // Szczegóły konkretnej rośliny
+  { path: '', component: HomeComponent }, // Domyślna strona ustawiona na Home
+  { path: 'my-plants', component: MyPlantsComponent },
+  { path: 'add-plant', component: AddPlantComponent },
+  { path: 'plant-details/:id', component: PlantDetailsComponent },
+  { path: '**', redirectTo: '' } // W przypadku nieznanych ścieżek przekieruj na Home
 ];
