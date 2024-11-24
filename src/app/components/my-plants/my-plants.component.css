@@ -1,3 +1,12 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background-image: url('/assets/images/soil.jpg');
+  background-size: cover; /* Dopasuj obraz do wielkości sekcji */
+  background-position: center; /* Wyśrodkuj obraz */
+  background-repeat: no-repeat; /* Zapobiegaj powtarzaniu obrazu */
+}
+
 /* Ustawienia kart */
 mat-card {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
