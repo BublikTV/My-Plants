@@ -22,7 +22,9 @@
     <mat-card-title>{{ plant.name }}</mat-card-title>
     <mat-card-subtitle>Species: {{ plant.species }}</mat-card-subtitle>
     <mat-card-content>
-      <p>This plant is added to your collection!</p>
+      <!-- Wyświetlanie opisu rośliny -->
+      <p *ngIf="plant.description">{{ plant.description }}</p>
+      <p *ngIf="!plant.description" style="font-style: italic; color: gray;">No description provided.</p>
     </mat-card-content>
   </mat-card>
 </div>

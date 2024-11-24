@@ -10,6 +10,11 @@
         <mat-label>Species</mat-label>
         <input matInput [(ngModel)]="species" name="species" required>
       </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 16px;">
+        <mat-label>Description (optional)</mat-label>
+        <textarea matInput [(ngModel)]="description" name="description"></textarea>
+      </mat-form-field>
   
       <button mat-raised-button color="primary" type="button" (click)="addPlant()" style="width: 100%;">Add Plant</button>
     </form>
