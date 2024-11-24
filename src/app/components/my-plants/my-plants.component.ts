@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 
 @Component({
@@ -10,4 +10,12 @@ import { MatCardModule } from '@angular/material/card';
   templateUrl: './my-plants.component.html',
   styleUrls: ['./my-plants.component.css']
 })
-export class MyPlantsComponent {}
+export class MyPlantsComponent implements OnInit {
+  plants: { name: string; species: string }[] = []; // Tablica roślin
+
+  ngOnInit() {
+    // Pobierz dane roślin z localStorage
+    const storedPlants = JSON.parse(localStorage.getItem('plants') || '[]');
+    this.plants = storedPlants;
+  }
+}

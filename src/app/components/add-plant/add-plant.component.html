@@ -1,17 +1,19 @@
 <div style="text-align: center; margin-top: 20px;">
     <h2>Add a New Plant</h2>
-    <form style="max-width: 400px; margin: 0 auto;">
+    <form (ngSubmit)="addPlant()" style="max-width: 400px; margin: 0 auto;">
       <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 16px;">
         <mat-label>Plant Name</mat-label>
-        <input matInput placeholder="Enter plant name" required>
+        <input matInput [(ngModel)]="plantName" name="plantName" required>
       </mat-form-field>
   
       <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 16px;">
         <mat-label>Species</mat-label>
-        <input matInput placeholder="Enter plant species" required>
+        <input matInput [(ngModel)]="species" name="species" required>
       </mat-form-field>
   
-      <button mat-raised-button color="primary" type="submit" style="width: 100%;">Add Plant</button>
+      <button mat-raised-button color="primary" type="button" (click)="addPlant()" style="width: 100%;">Add Plant</button>
     </form>
+  
+    <p *ngIf="successMessage" style="color: green; margin-top: 16px;">{{ successMessage }}</p>
 </div>
   

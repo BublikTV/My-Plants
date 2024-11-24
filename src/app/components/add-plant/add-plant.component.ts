@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-add-plant',
@@ -9,9 +11,36 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule,
+    CommonModule
   ],
   templateUrl: './add-plant.component.html',
   styleUrls: ['./add-plant.component.css']
 })
-export class AddPlantComponent {}
+export class AddPlantComponent {
+  plantName: string = ''; // Pole na nazwę rośliny
+  species: string = '';   // Pole na gatunek rośliny
+  successMessage: string = ''; // Komunikat o sukcesie
+
+  // Funkcja obsługująca dodanie rośliny
+  addPlant() {
+    if (this.plantName && this.species) {
+      const newPlant = { name: this.plantName, species: this.species };
+
+      // Dodaj roślinę do lokalnej pamięci (localStorage)
+      const plants = JSON.parse(localStorage.getItem('plants') || '[]');
+      plants.push(newPlant);
+      localStorage.setItem('plants', JSON.stringify(plants));
+
+      // Wyświetl komunikat
+      this.successMessage = `Plant "${this.plantName}" has been added successfully!`;
+
+      // Resetuj pola formularza
+      this.plantName = '';
+      this.species = '';
+    } else {
+      this.successMessage = 'Please fill out both fields!';
+    }
+  }
+}
