@@ -42,15 +42,13 @@
       />
     </div>
 
-    <!-- Przycisk usuwania -->
-    <button
+    <!-- Ikona usuwania -->
+    <mat-icon
       *ngIf="plant.id !== undefined"
       (click)="deletePlant($event, plant.id!)"
-      mat-raised-button
       color="warn"
-      style="position: absolute; top: 8px; right: 8px; z-index: 1;"
+      style="position: absolute; top: 8px; right: 8px; z-index: 1; cursor: pointer;"
+      >delete</mat-icon
     >
-      Delete
-    </button>
   </mat-card>
 </div>

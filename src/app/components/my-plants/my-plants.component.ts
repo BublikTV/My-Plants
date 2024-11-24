@@ -4,6 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router'; // Import RouterModule
 import { trigger, transition, style, animate, state } from '@angular/animations';
 import { PlantService, Plant } from 'src/app/services/plant.service';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-my-plants',
@@ -11,7 +12,8 @@ import { PlantService, Plant } from 'src/app/services/plant.service';
   imports: [
     MatCardModule,
     CommonModule,
-    RouterModule // Add RouterModule here for navigation
+    RouterModule,
+    MatIconModule
   ],
   templateUrl: './my-plants.component.html',
   styleUrls: ['./my-plants.component.css'],
