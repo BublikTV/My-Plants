@@ -1,10 +1,23 @@
 mat-card {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Lekki cień dla efektu 3D */
+  border-radius: 8px;                      /* Zaokrąglone rogi */
+  background-color: #f9f9f9;               /* Jasne tło */
+  padding: 16px;                           /* Odstępy wewnętrzne */
 }
 
 mat-card-title {
   font-weight: bold;
-  color: #3f51b5;
+  font-size: 1.5em;
+  color: #2e7d32;                          /* Zielony kolor dla nazw */
+  margin-bottom: 8px;
+}
+
+mat-card-subtitle {
+  font-size: 1.2em;
+  color: #555;                             /* Neutralny kolor dla gatunku */
+}
+
+mat-card-content {
+  font-size: 1em;
+  color: #333;                             /* Ciemniejszy kolor dla treści */
 }
