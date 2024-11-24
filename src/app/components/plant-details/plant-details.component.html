@@ -1,1 +1,11 @@
-<p>plant-details works!</p>
+<div *ngIf="plant; else loading">
+    <h2>{{ plant.name }}</h2>
+    <p><strong>Species:</strong> {{ plant.species }}</p>
+    <p><strong>Description:</strong> {{ plant.description || 'No description provided.' }}</p>
+    <img *ngIf="plant.imageUrl" [src]="plant.imageUrl" alt="{{ plant.name }}" style="width: 100%; height: auto;">
+</div>
+  
+<ng-template #loading>
+    <p>Loading plant details...</p>
+</ng-template>
+  
