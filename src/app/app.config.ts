@@ -7,17 +7,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { provideHttpClient } from '@angular/common/http'; // Dodano provideHttpClient
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
+    provideHttpClient(),
     importProvidersFrom(
       BrowserModule,
       BrowserAnimationsModule,
       MatToolbarModule,
       MatButtonModule,
-      MatCardModule
+      MatCardModule,
+      MatInputModule,
+      MatFormFieldModule,
     )
   ]
 };
