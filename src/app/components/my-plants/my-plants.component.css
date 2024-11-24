@@ -1,23 +1,40 @@
-mat-card {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Lekki cień dla efektu 3D */
-  border-radius: 8px;                      /* Zaokrąglone rogi */
-  background-color: #f9f9f9;               /* Jasne tło */
-  padding: 16px;                           /* Odstępy wewnętrzne */
+/* Ustawienie tła dla sekcji z kartami */
+:host {
+  display: block;
+  background-image: url('/assets/images/soil.jpg'); /* Tło - obraz ziemi */
+  background-size: cover; /* Dopasowanie obrazu do wielkości sekcji */
+  background-position: center; /* Wyśrodkowanie obrazu */
+  background-attachment: fixed; /* Obraz pozostaje nieruchomy podczas przewijania */
+  padding: 20px; /* Dodatkowy margines dla sekcji */
 }
 
+/* Stylizacja kart roślin */
+mat-card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Lekki cień dla efektu 3D */
+  border-radius: 8px; /* Zaokrąglone rogi */
+  background-color: rgba(255, 255, 255, 0.9); /* Półprzezroczyste białe tło */
+  padding: 16px; /* Odstępy wewnętrzne */
+  position: relative;
+  overflow: hidden; /* Ukrywanie elementów wychodzących poza kartę */
+  backdrop-filter: blur(5px); /* Rozmycie tła za kartą */
+}
+
+/* Stylizacja tytułu karty */
 mat-card-title {
   font-weight: bold;
   font-size: 1.5em;
-  color: #2e7d32;                          /* Zielony kolor dla nazw */
+  color: #2e7d32; /* Zielony kolor dla nazw */
   margin-bottom: 8px;
 }
 
+/* Stylizacja podtytułu karty */
 mat-card-subtitle {
   font-size: 1.2em;
-  color: #555;                             /* Neutralny kolor dla gatunku */
+  color: #555; /* Neutralny kolor dla gatunku */
 }
 
+/* Stylizacja zawartości karty */
 mat-card-content {
   font-size: 1em;
-  color: #333;                             /* Ciemniejszy kolor dla treści */
+  color: #333; /* Ciemniejszy kolor dla treści */
 }

@@ -26,7 +26,7 @@ export class PlantService {
   // Dodaj nową roślinę
   addPlant(plant: Plant): Observable<Plant> {
     return this.http.post<Plant>(this.apiUrl, plant);
-  }
+  }  
 
   // Usuń roślinę
   deletePlant(id: number): Observable<void> {

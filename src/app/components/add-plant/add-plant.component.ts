@@ -4,6 +4,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { PlantService } from 'src/app/services/plant.service';
 
 @Component({
   selector: 'app-add-plant',
@@ -25,6 +26,8 @@ export class AddPlantComponent {
   imageUrl: string = ''; // Opcjonalny URL zdjęcia
   successMessage: string = ''; // Komunikat o sukcesie
 
+  constructor(private plantService: PlantService) {} // Wstrzyknięcie serwisu PlantService
+
   // Funkcja obsługująca dodanie rośliny
   addPlant() {
     if (this.plantName && this.species) {
@@ -35,21 +38,26 @@ export class AddPlantComponent {
         imageUrl: this.imageUrl || '' // Jeśli brak zdjęcia, ustaw pusty ciąg
       };
 
-      // Dodaj roślinę do lokalnej pamięci (localStorage)
-      const plants = JSON.parse(localStorage.getItem('plants') || '[]');
-      plants.push(newPlant);
-      localStorage.setItem('plants', JSON.stringify(plants));
-
-      // Wyświetl komunikat
-      this.successMessage = `Plant "${this.plantName}" has been added successfully!`;
-
-      // Resetuj pola formularza
-      this.plantName = '';
-      this.species = '';
-      this.description = '';
-      this.imageUrl = '';
+      // Wywołanie serwisu, aby dodać roślinę do bazy danych
+      this.plantService.addPlant(newPlant).subscribe({
+        next: (plant) => {
+          this.successMessage = `Plant "${plant.name}" has been added successfully!`;
+          this.clearForm();
+        },
+        error: () => {
+          this.successMessage = 'An error occurred while adding the plant.';
+        }
+      });
     } else {
       this.successMessage = 'Please fill out both the Plant Name and Species fields!';
     }
+  }
+
+  // Funkcja do resetowania formularza
+  private clearForm() {
+    this.plantName = '';
+    this.species = '';
+    this.description = '';
+    this.imageUrl = '';
   }
 }
