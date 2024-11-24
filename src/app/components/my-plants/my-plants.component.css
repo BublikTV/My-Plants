@@ -1,13 +1,28 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background-image: url('/assets/images/soil.jpg');
+  background-size: cover; /* Dopasuj obraz do wielkości sekcji */
+  background-position: center; /* Wyśrodkuj obraz */
+  background-repeat: no-repeat; /* Zapobiegaj powtarzaniu obrazu */
+  padding-top: 20px; /* Dodanie odstępu od góry */
+}
+
 /* Ustawienia kart */
 mat-card {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-  background-color: #ffffff;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Lekki cień */
+  border-radius: 8px; /* Zaokrąglone rogi */
+  background-color: rgba(255, 255, 255, 0.9); /* Półprzezroczyste białe tło */
+  padding: 16px; /* Odstępy wewnętrzne */
+  position: relative;
+  overflow: hidden; /* Ukrywanie elementów wychodzących poza kartę */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animacja dla transformacji i cienia */
+}
+
+/* Efekt najechania myszką */
+mat-card:hover {
+  transform: scale(1.05); /* Powiększenie karty */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Mocniejszy cień */
 }
 
 /* Nagłówek */
@@ -35,4 +50,5 @@ mat-card img {
   height: 100%;
   object-fit: cover;
   border-top: 1px solid #ccc;
+  border-radius: 8px; /* Zaokrąglone rogi */
 }
