@@ -22,6 +22,7 @@ export class AddPlantComponent {
   plantName: string = ''; // Pole na nazwę rośliny
   species: string = '';   // Pole na gatunek rośliny
   description: string = ''; // Pole na opis rośliny
+  imageUrl: string = ''; // Opcjonalny URL zdjęcia
   successMessage: string = ''; // Komunikat o sukcesie
 
   // Funkcja obsługująca dodanie rośliny
@@ -30,7 +31,8 @@ export class AddPlantComponent {
       const newPlant = {
         name: this.plantName,
         species: this.species,
-        description: this.description || '' // Jeśli brak opisu, ustaw jako pusty
+        description: this.description || '', // Jeśli brak opisu, ustaw jako pusty
+        imageUrl: this.imageUrl || '' // Jeśli brak zdjęcia, ustaw pusty ciąg
       };
 
       // Dodaj roślinę do lokalnej pamięci (localStorage)
@@ -45,6 +47,7 @@ export class AddPlantComponent {
       this.plantName = '';
       this.species = '';
       this.description = '';
+      this.imageUrl = '';
     } else {
       this.successMessage = 'Please fill out both the Plant Name and Species fields!';
     }

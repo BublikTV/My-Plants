@@ -1,24 +1,34 @@
 <div style="text-align: center; margin-top: 20px;">
-    <h2>Add a New Plant</h2>
-    <form (ngSubmit)="addPlant()" style="max-width: 400px; margin: 0 auto;">
-      <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 16px;">
-        <mat-label>Plant Name</mat-label>
-        <input matInput [(ngModel)]="plantName" name="plantName" required>
-      </mat-form-field>
-  
-      <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 16px;">
-        <mat-label>Species</mat-label>
-        <input matInput [(ngModel)]="species" name="species" required>
-      </mat-form-field>
+  <h2>Add a New Plant</h2>
+  <form (ngSubmit)="addPlant()" style="max-width: 400px; margin: 0 auto;">
+    <!-- Pole dla nazwy rośliny -->
+    <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 16px;">
+      <mat-label>Plant Name</mat-label>
+      <input matInput [(ngModel)]="plantName" name="plantName" required>
+    </mat-form-field>
 
-      <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 16px;">
-        <mat-label>Description (optional)</mat-label>
-        <textarea matInput [(ngModel)]="description" name="description"></textarea>
-      </mat-form-field>
-  
-      <button mat-raised-button color="primary" type="button" (click)="addPlant()" style="width: 100%;">Add Plant</button>
-    </form>
-  
-    <p *ngIf="successMessage" style="color: green; margin-top: 16px;">{{ successMessage }}</p>
+    <!-- Pole dla gatunku rośliny -->
+    <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 16px;">
+      <mat-label>Species</mat-label>
+      <input matInput [(ngModel)]="species" name="species" required>
+    </mat-form-field>
+
+    <!-- Pole dla opisu rośliny -->
+    <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 16px;">
+      <mat-label>Description (optional)</mat-label>
+      <textarea matInput [(ngModel)]="description" name="description"></textarea>
+    </mat-form-field>
+
+    <!-- Pole dla URL zdjęcia rośliny -->
+    <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 16px;">
+      <mat-label>Image URL (optional)</mat-label>
+      <input matInput [(ngModel)]="imageUrl" name="imageUrl">
+    </mat-form-field>
+
+    <!-- Przycisk do dodania rośliny -->
+    <button mat-raised-button color="primary" type="button" (click)="addPlant()" style="width: 100%;">Add Plant</button>
+  </form>
+
+  <!-- Komunikat o sukcesie -->
+  <p *ngIf="successMessage" style="color: green; margin-top: 16px;">{{ successMessage }}</p>
 </div>
-  

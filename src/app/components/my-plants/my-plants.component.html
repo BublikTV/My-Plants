@@ -18,10 +18,17 @@
   </mat-card>
 
   <!-- Dynamicznie generowane karty roślin z animacją fadeIn -->
-  <mat-card *ngFor="let plant of plants" [@fadeIn] style="width: 300px;">
-    <mat-card-title>{{ plant.name }}</mat-card-title>
-    <mat-card-subtitle>Species: {{ plant.species }}</mat-card-subtitle>
-    <mat-card-content>
+  <mat-card *ngFor="let plant of plants" [@fadeIn] style="width: 300px; position: relative; overflow: hidden;">
+    <!-- Tło zdjęcia -->
+    <div *ngIf="plant.imageUrl" 
+         [style.background-image]="'url(' + plant.imageUrl + ')'"
+         style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-size: cover; background-position: center; filter: brightness(0.7);">
+    </div>
+
+    <!-- Tekst na tle -->
+    <mat-card-title style="position: relative; color: white;">{{ plant.name }}</mat-card-title>
+    <mat-card-subtitle style="position: relative; color: lightgray;">Species: {{ plant.species }}</mat-card-subtitle>
+    <mat-card-content style="position: relative; color: white;">
       <!-- Wyświetlanie opisu rośliny -->
       <p *ngIf="plant.description">{{ plant.description }}</p>
       <p *ngIf="!plant.description" style="font-style: italic; color: gray;">No description provided.</p>

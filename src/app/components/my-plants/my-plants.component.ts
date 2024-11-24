@@ -22,8 +22,8 @@ import { trigger, transition, style, animate } from '@angular/animations';
   ]
 })
 export class MyPlantsComponent implements OnInit {
-  // Tablica roślin z polem description
-  plants: { name: string; species: string; description?: string }[] = [];
+  // Tablica roślin z polami description i imageUrl
+  plants: { name: string; species: string; description?: string; imageUrl?: string }[] = [];
 
   ngOnInit() {
     // Pobierz dane roślin z localStorage
