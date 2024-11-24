@@ -5,11 +5,11 @@ import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-root',
-  standalone: true, // Komponent standalone
+  standalone: true,
   imports: [
-    RouterModule,       // Dodaj RouterModule, aby obsłużyć router-outlet
-    MatToolbarModule,   // Toolbar Angular Material
-    MatButtonModule     // Przyciski Angular Material
+    RouterModule,
+    MatToolbarModule,
+    MatButtonModule,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']

@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-my-plants',
-  imports: [],
+  standalone: true,
+  imports: [
+    MatCardModule
+  ],
   templateUrl: './my-plants.component.html',
-  styleUrl: './my-plants.component.css'
+  styleUrls: ['./my-plants.component.css']
 })
-export class MyPlantsComponent {
-
-}
+export class MyPlantsComponent {}
