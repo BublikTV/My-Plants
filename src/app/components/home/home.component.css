@@ -25,11 +25,14 @@
   }
   
   .home-image img {
-    max-width: 300px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin-bottom: 20px;
+    width: 100%; /* Dopasowanie do szerokości kontenera */
+    max-width: 600px; /* Maksymalna szerokość */
+    height: auto; /* Zachowaj proporcje */
+    margin: 20px auto; /* Wyśrodkuj obraz */
+    display: block; /* Ustaw obraz jako blok */
+    border-radius: 15px; /* Dodaj zaokrąglone rogi dla estetyki */
   }
+  
   
   .home-quote {
     font-size: 1em;
