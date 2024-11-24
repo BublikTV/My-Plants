@@ -19,6 +19,11 @@ mat-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animacja dla transformacji i cienia */
 }
 
+mat-card {
+  cursor: pointer; /* Wskazanie, że karta jest klikalna */
+  transition: transform 0.3s ease; /* Animacja przy najechaniu */
+}
+
 /* Efekt najechania myszką */
 mat-card:hover {
   transform: scale(1.05); /* Powiększenie karty */

@@ -5,20 +5,27 @@ import { PlantService, Plant } from 'src/app/services/plant.service';
 
 @Component({
   selector: 'app-plant-details',
-  standalone: true, // Ustawione na standalone
-  imports: [CommonModule], // Import CommonModule dla dyrektywy *ngIf
+  standalone: true, // Komponent standalone
+  imports: [CommonModule], // Import CommonModule dla dyrektyw Angular, takich jak *ngIf
   templateUrl: './plant-details.component.html',
-  styleUrls: ['./plant-details.component.css']
+  styleUrls: ['./plant-details.component.css'],
 })
 export class PlantDetailsComponent implements OnInit {
-  plant: Plant | undefined;
+  plant: Plant | null = null; // Typowanie z możliwością null
 
-  constructor(private route: ActivatedRoute, private plantService: PlantService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private plantService: PlantService
+  ) {}
 
   ngOnInit() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.plantService.getPlants().subscribe((plants: Plant[]) => {
-      this.plant = plants.find(p => p.id === id);
-    });
+
+    if (!isNaN(id)) {
+      // Pobranie danych rośliny z serwisu
+      this.plantService.getPlants().subscribe((plants: Plant[]) => {
+        this.plant = plants.find((p) => p.id === id) || null;
+      });
+    }
   }
 }

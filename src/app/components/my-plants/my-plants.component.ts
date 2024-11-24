@@ -1,21 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
+import { RouterModule } from '@angular/router'; // Import RouterModule
 import { trigger, transition, style, animate, state } from '@angular/animations';
-import { PlantService, Plant } from 'src/app/services/plant.service'; // Import serwisu i interfejsu Plant
+import { PlantService, Plant } from 'src/app/services/plant.service';
 
 @Component({
   selector: 'app-my-plants',
   standalone: true,
   imports: [
     MatCardModule,
-    CommonModule
+    CommonModule,
+    RouterModule // Add RouterModule here
   ],
   templateUrl: './my-plants.component.html',
   styleUrls: ['./my-plants.component.css'],
   animations: [
     trigger('cardAnimation', [
-      // Animacja wchodzenia/wychodzenia
       transition(':enter', [
         style({ opacity: 0, transform: 'scale(0.9)' }),
         animate('300ms ease-out', style({ opacity: 1, transform: 'scale(1)' }))
@@ -38,27 +39,27 @@ import { PlantService, Plant } from 'src/app/services/plant.service'; // Import 
   ]
 })
 export class MyPlantsComponent implements OnInit {
-  plants: Plant[] = []; // Typowana tablica roślin
-  hoverState: { [key: number]: string } = {}; // Stan hover dla każdej karty
+  plants: Plant[] = []; // Typed array of plants
+  hoverState: { [key: number]: string } = {}; // Hover state for each card
 
-  constructor(private plantService: PlantService) {} // Iniekcja serwisu PlantService
+  constructor(private plantService: PlantService) {} // Inject PlantService
 
   ngOnInit() {
-    // Pobierz dane roślin z REST API za pomocą serwisu
+    // Fetch plant data from the REST API using the service
     this.plantService.getPlants().subscribe((data: Plant[]) => {
       this.plants = data;
     });
   }
 
-  // Funkcja usuwania rośliny
+  // Function to delete a plant
   deletePlant(id: number) {
     this.plantService.deletePlant(id).subscribe(() => {
-      // Po usunięciu rośliny odśwież listę
+      // Refresh the list after deleting the plant
       this.plants = this.plants.filter(plant => plant.id !== id);
     });
   }
 
-  // Zmiana stanu hover
+  // Update hover state
   setHoverState(id: number, state: string) {
     this.hoverState[id] = state;
   }
