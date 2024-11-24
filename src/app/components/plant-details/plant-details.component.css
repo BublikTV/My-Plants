@@ -20,3 +20,29 @@
     color: #333;
   }
   
+  /* Stylizacja sekcji warunków trzymania */
+  .plant-conditions {
+    margin-top: 20px;
+    text-align: left;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .plant-conditions h3 {
+    margin-bottom: 15px;
+    color: #2e7d32;
+  }
+  
+  .plant-conditions ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .plant-conditions li {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: #555;
+  }
+  

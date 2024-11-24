@@ -7,5 +7,16 @@
     <ng-template #noDescription>
       <p style="font-style: italic; color: gray;">No description available for this plant.</p>
     </ng-template>
-  </div>
+  
+    <!-- Sekcja warunków trzymania -->
+    <div class="plant-conditions">
+      <h3>Plant Care Conditions</h3>
+      <ul>
+        <li><strong>Light:</strong> {{ plant?.light || 'Not specified' }}</li>
+        <li><strong>Watering:</strong> {{ plant?.watering || 'Not specified' }}</li>
+        <li><strong>Humidity:</strong> {{ plant?.humidity || 'Not specified' }}</li>
+        <li><strong>Temperature:</strong> {{ plant?.temperature || 'Not specified' }}</li>
+      </ul>
+    </div>
+</div>
   
