@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-my-plants',
   standalone: true,
   imports: [
-    MatCardModule
+    MatCardModule,
+    CommonModule
   ],
   templateUrl: './my-plants.component.html',
   styleUrls: ['./my-plants.component.css']
