@@ -4,12 +4,12 @@
 >
   <mat-card
     *ngFor="let plant of plants"
-    style="width: 300px; height: 400px; display: flex; flex-direction: column; justify-content: space-between; position: relative;"
+    [routerLink]="['/plant-details', plant.id]"
+    style="width: 300px; height: 400px; display: flex; flex-direction: column; justify-content: space-between; position: relative; cursor: pointer;"
   >
     <!-- Sekcja Nagłówka -->
     <div
-      style="text-align: center; padding: 8px; background-color: #f1f1f1; border-bottom: 1px solid #ccc; cursor: pointer;"
-      [routerLink]="['/plant-details', plant.id]"
+      style="text-align: center; padding: 8px; background-color: #f1f1f1; border-bottom: 1px solid #ccc;"
     >
       <mat-card-title style="font-size: 1.5em; color: #2e7d32; font-weight: bold;">
         {{ plant.name }}
@@ -30,10 +30,7 @@
     </div>
 
     <!-- Sekcja Zdjęcia -->
-    <div
-      style="height: 150px; overflow: hidden; cursor: pointer;"
-      [routerLink]="['/plant-details', plant.id]"
-    >
+    <div style="height: 150px; overflow: hidden;">
       <img
         *ngIf="plant.imageUrl"
         [src]="plant.imageUrl"
@@ -42,13 +39,17 @@
       />
     </div>
 
-    <!-- Ikona usuwania -->
+    <!-- Przycisk usuwania -->
     <mat-icon
       *ngIf="plant.id !== undefined"
+      [@iconHoverAnimation]="getIconHoverState(plant.id)"
       (click)="deletePlant($event, plant.id!)"
+      (mouseenter)="setIconHoverState('hovered', plant.id!)"
+      (mouseleave)="setIconHoverState('default', plant.id!)"
       color="warn"
       style="position: absolute; top: 8px; right: 8px; z-index: 1; cursor: pointer;"
-      >delete</mat-icon
     >
+      delete
+    </mat-icon>
   </mat-card>
 </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
-import { RouterModule } from '@angular/router'; // Import RouterModule
+import { RouterModule } from '@angular/router';
 import { trigger, transition, style, animate, state } from '@angular/animations';
 import { PlantService, Plant } from 'src/app/services/plant.service';
 import { MatIconModule } from '@angular/material/icon';
@@ -27,46 +27,43 @@ import { MatIconModule } from '@angular/material/icon';
         animate('300ms ease-in', style({ opacity: 0, transform: 'scale(0.9)' }))
       ])
     ]),
-    trigger('hoverAnimation', [
+    trigger('iconHoverAnimation', [
       state('hovered', style({
-        transform: 'scale(1.05)',
-        boxShadow: '0 6px 12px rgba(0, 0, 0, 0.3)'
+        transform: 'scale(1.2)',
+        color: 'red'
       })),
       state('default', style({
         transform: 'scale(1)',
-        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)'
+        color: 'inherit'
       })),
       transition('default <=> hovered', animate('200ms ease-in-out'))
     ])
   ]
 })
 export class MyPlantsComponent implements OnInit {
-  plants: Plant[] = []; // Typed array of plants
-  hoverState: { [key: number]: string } = {}; // Hover state for each card
+  plants: Plant[] = [];
+  hoverState: { [key: number]: string } = {};
 
-  constructor(private plantService: PlantService) {} // Inject PlantService
+  constructor(private plantService: PlantService) {}
 
   ngOnInit() {
-    // Fetch plant data from the REST API using the service
     this.plantService.getPlants().subscribe((data: Plant[]) => {
       this.plants = data;
     });
   }
 
-  // Function to delete a plant
   deletePlant(event: Event, id: number) {
-    event.stopPropagation(); // Zatrzymanie propagacji zdarzenia
+    event.stopPropagation();
     this.plantService.deletePlant(id).subscribe(() => {
       this.plants = this.plants.filter(plant => plant.id !== id);
     });
   }
 
-  // Update hover state
-  setHoverState(id: number, state: string) {
+  setIconHoverState(state: string, id: number) {
     this.hoverState[id] = state;
   }
 
-  getHoverState(id: number): string {
+  getIconHoverState(id: number): string {
     return this.hoverState[id] || 'default';
   }
 }
