@@ -27,6 +27,13 @@
       "species": "ornata Sanderiana",
       "description": "A decorative plant with dark green leaves and pink stripes, loves humid environments.",
       "imageUrl": "https://zielony-parapet.pl/4971-thickbox_default/calathea-ornata-sanderiana-.jpg"
+    },
+    {
+      "id": "8abf",
+      "name": "Monstera Adansonii ",
+      "species": "Monkey Leaf",
+      "description": "They bear oblong holes, giving the foliage the appearance of a monkey mask.",
+      "imageUrl": "https://www.mein-schoener-garten.de/sites/default/files/styles/inline_scaled_s/public/monstera-adansonii-monkey-leaf-1037647792-istock.jpg?itok=Km7fc9bj"
     }
   ]
 }
