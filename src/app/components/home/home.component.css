@@ -1,6 +1,6 @@
 .home-container {
     text-align: center;
-    padding: 40px;
+    padding: 40px 20px;
     background: linear-gradient(to bottom, #e8f5e9, #f1f8e9);
     min-height: 100vh;
   }
@@ -27,12 +27,18 @@
   .home-image img {
     width: 100%; /* Dopasowanie do szerokości kontenera */
     max-width: 600px; /* Maksymalna szerokość */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     height: auto; /* Zachowaj proporcje */
     margin: 20px auto; /* Wyśrodkuj obraz */
     display: block; /* Ustaw obraz jako blok */
     border-radius: 15px; /* Dodaj zaokrąglone rogi dla estetyki */
+    transform: scale(0.98);
+    transition: transform 0.3s ease;
   }
-  
+
+  .home-image img:hover {
+    transform: scale(1.02);
+  }
   
   .home-quote {
     font-size: 1em;
